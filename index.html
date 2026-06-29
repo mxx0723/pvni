@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Project page for Stable and Explainable Personality Trait Evaluation in Large Language Models with Internal Activations.">
+  <title>Stable and Explainable Personality Trait Evaluation in Large Language Models with Internal Activations</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="hero">
+    <div class="container narrow">
+      <h1 class="publication-title">Stable and Explainable Personality Trait Evaluation in Large Language Models with Internal Activations</h1>
+      <div class="publication-venue">Findings of ACL 2026</div>
+
+      <div class="publication-authors">
+        <span class="author-block"><a href="https://mxx0723.github.io/">Xiaoxu Ma</a><sup>1</sup>,</span>
+        <span class="author-block">Xiangbo Zhang<sup>1</sup>,</span>
+        <span class="author-block">Zhenyu Weng<sup>2</sup></span>
+      </div>
+
+      <div class="publication-affiliations">
+        <span><sup>1</sup>Georgia Institute of Technology</span>
+        <span><sup>2</sup>South China University of Technology</span>
+      </div>
+
+      <div class="publication-links">
+        <a class="button-link" href="https://aclanthology.org/2026.findings-acl.803.pdf" target="_blank" rel="noopener">Paper</a>
+        <a class="button-link" href="https://aclanthology.org/2026.findings-acl.803/" target="_blank" rel="noopener">ACL Anthology</a>
+        <a class="button-link" href="#bibtex">BibTeX</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="teaser">
+    <div class="container">
+      <figure class="figure-block">
+        <img src="assets/teaser.png" alt="Overview comparing questionnaire, open-ended elicitation, and PVNI method.">
+        <figcaption>
+          Comparison of questionnaire-based scoring, open-ended elicitation, and the proposed Persona-Vector Neutrality Interpolation (PVNI).
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>Abstract</h2>
+      <p>
+        Personality evaluation helps characterize behavioral tendencies of large language models beyond task accuracy, but existing protocols are often unstable. Self-report questionnaires are sensitive to wording changes, while open-ended elicitation remains dependent on prompt framing and external judging. As a result, measured personality scores may reflect surface prompt responses rather than stable internal tendencies.
+      </p>
+      <p>
+        We propose <strong>Persona-Vector Neutrality Interpolation (PVNI)</strong>, a representation-based method for stable and explainable Big Five / OCEAN evaluation. PVNI constructs a personality direction from positive and negative persona prompts in the hidden-state space, then projects a neutral representation onto this axis to estimate a trait score. Across multiple LLMs, PVNI consistently achieves much lower prompt sensitivity while preserving strong agreement with existing personality measurement protocols.
+      </p>
+    </div>
+  </section>
+
+  <section class="section light-section">
+    <div class="container narrow">
+      <h2>Background</h2>
+      <p>
+        Existing personality measurements for LLMs mainly rely on output text. In questionnaire-based protocols, the model directly selects Likert-style answers; in open-ended elicitation, a judge model scores free-form responses. Both approaches can vary substantially under prompt rewrites or lightweight role-play changes.
+      </p>
+      <p>
+        Our goal is to obtain personality scores that are <strong>stable</strong>, <strong>explainable</strong>, and <strong>comparable</strong> across different prompting conditions.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Method</h2>
+      <p class="section-intro narrow center-text">
+        PVNI builds hidden-state persona directions from positive and negative prompts, then estimates the neutral trait score through representation-based interpolation.
+      </p>
+      <figure class="figure-block">
+        <img src="assets/method.png" alt="PVNI pipeline using positive, negative, and neutral prompts to estimate Big Five traits.">
+        <figcaption>
+          PVNI pipeline: positive, negative, and neutral prompts are processed by the LLM; hidden-state activations define persona vectors and support representation-based interpolation for Big Five measurement.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section light-section">
+    <div class="container narrow">
+      <h2>Main Experimental Results</h2>
+      <p>
+        The main empirical finding is that PVNI has the lowest standard deviation across prompt variants, models, and traits, indicating much better stability than questionnaire-based or open-ended baselines.
+      </p>
+      <p>
+        The table below reports the quantitative results. The radar plot further illustrates that PVNI maintains a comparable trait profile while showing a narrower uncertainty band.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <figure class="figure-block">
+        <img src="assets/main_table_result.png" alt="Main quantitative results table showing PVNI has lower variance.">
+        <figcaption>
+          Main quantitative results: PVNI consistently achieves the smallest or near-smallest variance across questionnaire variants and role-play variants.
+        </figcaption>
+      </figure>
+
+      <figure class="figure-block">
+        <img src="assets/main_radar_result.png" alt="Radar plot comparing IPIP-BFFM-50, IPIP-NEO-120, open-ended elicitation, and PVNI.">
+        <figcaption>
+          Radar plot comparison: PVNI preserves a meaningful personality profile while exhibiting tighter uncertainty than existing protocols.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section light-section" id="bibtex">
+    <div class="container narrow">
+      <h2>BibTeX</h2>
+      <pre><code>@inproceedings{ma-etal-2026-stable,
+  title = {Stable and Explainable Personality Trait Evaluation in Large Language Models with Internal Activations},
+  author = {Ma, Xiaoxu and Zhang, Xiangbo and Weng, Zhenyu},
+  booktitle = {Findings of the Association for Computational Linguistics: ACL 2026},
+  year = {2026},
+  pages = {16322--16340},
+  url = {https://aclanthology.org/2026.findings-acl.803/}
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container narrow">
+      <p>Website template adapted to match the style of the reference academic project page.</p>
+    </div>
+  </footer>
+</body>
+</html>
